@@ -8,6 +8,10 @@ def launch_website(request):
     driver = webdriver.Chrome(service=service_obj)
     driver.get("https://swathi1608.github.io/Portfolio/")
     driver.implicitly_wait(15)
+    driver.find_element(By.ID, "usernameInput").send_keys("swathi")
+    driver.find_element(By.ID, "passwordInput").send_keys("qaportal123")
+    driver.find_element(By.XPATH, "//button[@class='btn-login']").click()
+    driver.maximize_window()
     request.cls.driver = driver
     yield
     driver.quit()
